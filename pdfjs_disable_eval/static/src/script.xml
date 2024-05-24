@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="pdf_js_lib_patch" name="PDF JS Library Patch" inherit_id="web.pdf_js_lib">
+        <xpath expr="." position="replace">
+            <script type="text/javascript" src="/pdfjs_disable_eval/static/build/pdf.js"/>
+            <script type="text/javascript" src="/pdfjs_disable_eval/static/build/pdf.worker.js"/>
+        </xpath>
+    </template>
+
+    <template id="assets_backend" name="pdfjs_disable_eval assets" inherit_id="web.assets_backend">
+        <xpath expr="//script[@src='/web/static/src/js/fields/basic_fields.js']" position="replace">
+            <script type="text/javascript" src="/pdfjs_disable_eval/static/src/js/basic_fields.js"/>
+        </xpath>
+    </template>
+
+</odoo>

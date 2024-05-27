@@ -12,6 +12,9 @@
         <xpath expr="//script[last()]" position="after">
             <script type="text/javascript" src="/pdfjs_disable_eval/static/src/js/basic_fields.js"/>
         </xpath>
+        <xpath expr="//script[@src='/mail/static/src/models/attachment/attachment.js']" position="replace">
+            <script type="text/javascript" src="/pdfjs_disable_eval/static/src/js/attachment.js"/>
+        </xpath>
     </template>
 
 </odoo>

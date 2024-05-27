@@ -1,9 +1,10 @@
 odoo.define('pdfjs_disable_eval.basic_fields', function (require) {
     'use strict';
 
-    const basic_fields = require('web.basic_fields');
-    const FieldPdfViewer = basic_fields.FieldPdfViewer;
-    const FieldPdfViewerExtend = FieldPdfViewer.extend({
+    const basicFields = require('web.basic_fields');
+    const FieldPdfViewer = basicFields.FieldPdfViewer;
+
+    const FieldPdfViewerPatch = FieldPdfViewer.extend({
 
         //--------------------------------------------------------------------------
         // AVALAH OVERRIDE
@@ -31,7 +32,8 @@ odoo.define('pdfjs_disable_eval.basic_fields', function (require) {
         },
     });
 
-    return {
-        FieldPdfViewer: FieldPdfViewerExtend,
-    }
+    basicFields.FieldPdfViewer = FieldPdfViewerPatch;
+
+    return FieldPdfViewerPatch;
+
 });
